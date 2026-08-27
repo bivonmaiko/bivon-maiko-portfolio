@@ -1689,3 +1689,34 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+/* ========================================
+   ANIMATED PROFESSIONAL TITLE
+======================================== */
+
+.animated-title {
+    min-height: 45px;
+}
+
+.animated-title span {
+    color: #38bdf8;
+
+    border-right: 2px solid #38bdf8;
+
+    padding-right: 6px;
+
+    animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+
+    0%,
+    50% {
+        border-color: #38bdf8;
+    }
+
+    51%,
+    100% {
+        border-color: transparent;
+    }
+
+}

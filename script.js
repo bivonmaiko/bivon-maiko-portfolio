@@ -30,3 +30,74 @@ revealElements.forEach((element) => {
     revealObserver.observe(element);
 
 });
+// ========================================
+// TYPING EFFECT
+// ========================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const typingText = document.getElementById("typing-text");
+
+    if (!typingText) {
+        return;
+    }
+
+    const titles = [
+        "ICT & NETWORKING PROFESSIONAL",
+        "IT SUPPORT SPECIALIST",
+        "NETWORK TROUBLESHOOTING SPECIALIST",
+        "PYTHON DEVELOPER",
+        "WEB DEVELOPER"
+    ];
+
+    let titleIndex = 0;
+    let characterIndex = 0;
+    let deleting = false;
+
+    function typeTitle() {
+
+        const currentTitle = titles[titleIndex];
+
+        if (!deleting) {
+
+            typingText.textContent =
+                currentTitle.substring(0, characterIndex + 1);
+
+            characterIndex++;
+
+            if (characterIndex === currentTitle.length) {
+
+                deleting = true;
+
+                setTimeout(typeTitle, 1800);
+
+                return;
+            }
+
+        } else {
+
+            typingText.textContent =
+                currentTitle.substring(0, characterIndex - 1);
+
+            characterIndex--;
+
+            if (characterIndex === 0) {
+
+                deleting = false;
+
+                titleIndex++;
+
+                if (titleIndex >= titles.length) {
+                    titleIndex = 0;
+                }
+
+            }
+
+        }
+
+        setTimeout(typeTitle, deleting ? 50 : 100);
+    }
+
+    typeTitle();
+
+});
